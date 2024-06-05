@@ -83,8 +83,8 @@ const ProductFilter = () => {
         onChange={(e) => handleFilterChange('brand', e.target.value)}
       >
         <option value="">Select Brand</option>
-        {brandOptions.map(option => (
-          <option key={option} value={option}>
+        {brandOptions.map((option, index) => (
+          <option key={`brand-${index}-${option}`} value={option}>
             {option}
           </option>
         ))}
@@ -94,8 +94,8 @@ const ProductFilter = () => {
         onChange={(e) => setProductCategory(e.target.value)}
       >
         <option value="">Select Category</option>
-        {categoryOptions.map(option => (
-          <option key={option.id} value={option.slug}>
+        {categoryOptions.map((option, index) => (
+          <option key={`category-${index}-${option}`} value={option.slug}>
             {option.slug}
           </option>
         ))}
