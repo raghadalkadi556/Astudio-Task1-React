@@ -34,10 +34,10 @@ export const DataProvider = ({ children }) => {
     if (userFilter.key && userFilter.value) {
       query = `https://dummyjson.com/users/filter?key=${userFilter.key}&value=${userFilter.value}`;
     }
-    console.log("User query:", query); // Log the query to check if it's correct
+    
     try {
       const response = await axios.get(query);
-      console.log("User response:", response.data); // Log the response data
+      
       setUsers(response.data.users || []);
       setTotalUsers(response.data.total || 0);
     } catch (error) {
