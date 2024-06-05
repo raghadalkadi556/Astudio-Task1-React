@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { DataContext } from '../context/DataContext';
 
 const Pagination = ({ isUsersData }) => {
@@ -16,8 +17,6 @@ const Pagination = ({ isUsersData }) => {
   const totalPages = isUsersData
     ? Math.ceil(totalUsers / userPageSize)
     : Math.ceil(totalProducts / productPageSize);
-
-  const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return; // Prevent out-of-bound page changes
@@ -75,6 +74,7 @@ const Pagination = ({ isUsersData }) => {
           key={page}
           onClick={() => handlePageChange(page)}
           className={currentPage === page ? 'active' : ''}
+          style={{ fontWeight: currentPage === page ? 'bold' : 'normal' }}
         >
           {page}
         </button>
@@ -85,12 +85,20 @@ const Pagination = ({ isUsersData }) => {
   return (
     <div className="pagination-container">
       <div className="pagination">
-        <button onClick={() => handlePageChange(isUsersData ? userCurrentPage - 1 : productCurrentPage - 1)}>
-          &lt;
+        <button
+          onClick={() => handlePageChange(isUsersData ? userCurrentPage - 1 : productCurrentPage - 1)}
+          disabled={isUsersData ? userCurrentPage === 1 : productCurrentPage === 1}
+          style={{ cursor: (isUsersData && userCurrentPage === 1) || (!isUsersData && productCurrentPage === 1) ? 'not-allowed' : 'pointer' }}
+        >
+          <FaArrowLeft />
         </button>
         {renderPagination()}
-        <button onClick={() => handlePageChange(isUsersData ? userCurrentPage + 1 : productCurrentPage + 1)}>
-          &gt;
+        <button
+          onClick={() => handlePageChange(isUsersData ? userCurrentPage + 1 : productCurrentPage + 1)}
+          disabled={isUsersData ? userCurrentPage === totalPages : productCurrentPage === totalPages}
+          style={{ cursor: (isUsersData && userCurrentPage === totalPages) || (!isUsersData && productCurrentPage === totalPages) ? 'not-allowed' : 'pointer' }}
+        >
+          <FaArrowRight />
         </button>
       </div>
     </div>
