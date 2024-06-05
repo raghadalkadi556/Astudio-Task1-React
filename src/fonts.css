@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Neutra Text Bold';
+    src: url('./fonts/neutra-text-bold-5871e1605afa2.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Neutra Text Light';
+    src: url('./fonts/neutra-text-light-5872613aeda5b.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Neutra Text Light', sans-serif;
+  }
+  

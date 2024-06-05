@@ -1,38 +1,162 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Neutra Text Light', sans-serif;
+  background-color: #ffffff;
+  color: #322625;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  position: relative;
+  display: inline-block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.yellow-underline::after {
+  content: "";
+  background-color: #fdc936;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  position: absolute;
+  bottom: 0.1rem;
+  width: 40%;
+  right: 0;
+  height: 1rem;
+  z-index: -1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.yellow-underline2::after {
+  content: "";
+  background-color: #fdc936;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  position: absolute;
+  bottom: 0.1rem;
+  width: 50%;
+  right: 0;
+  height: 1rem;
+  z-index: -1;
+}
+
+.thead-font{
+  font-family: 'Neutra Text Bold', sans-serif;
+}
+
+.filters {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 3px solid #ebebeb;
+}
+
+th {
+  background-color: #c0e3e5;
+}
+
+button {
+  margin: 5px;
+  padding: 5px;
+  border: none;
+  background-color: #c0e3e5;
+  cursor: pointer;
+}
+
+.pagination button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+button.active {
+  background-color: #fdc936;
+}
+
+button.hover {
+  background-color: #322625;
+  color: #ffffff;
+}
+
+.pagination button:hover {
+  color: #322625 !important;
+  font-weight: bold;
+  transform: translateY(-0.5rem); 
+}
+
+.products-page, .users-page{
+  margin: 2rem;
+}
+
+.pagination-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.float-right{
+  float: right;
+  font-family: 'Neutra Text Bold', sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+select{
+  border: none;
+}
+
+.product-select{
+  padding-top: 8px;
+}
+
+input[type="text"] {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.search-icon-container{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-icon {
+  cursor: pointer;
+  margin-right: 10px;
+  color: #322625;
+}
+
+.search-icon-container::before,
+.search-icon-container::after {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 2px;
+  background-color: #ebebeb;
+}
+
+.search-icon-container::before {
+  left: -15px;
+  display: block;
+}
+
+.search-icon-container::after {
+  right: -15px;
+  display: block;
+  margin-right: 10px;
+}
+
+.prl-1rem{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.ml-15{
+  margin-left: 15px;
 }
